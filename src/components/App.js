@@ -6,7 +6,7 @@ import TotalDisplay from './TotalDisplay';
 import CalcButton from './CalcButton';
 
 import { initialState, reducer } from '../reducers/index'
-import { addOne, applyNumber, changeOperation, clearDisplay, setMemory } from '../actions/index'
+import { addOne, applyNumber, changeOperation, clearDisplay, setMemory, applyMemory, clearMemory } from '../actions/index'
 
 function App() {
 
@@ -32,8 +32,8 @@ function App() {
             {/* Memory functionality I'm hooking up */}
             <div className="row">
               <CalcButton value={"M+"} onClick={() => dispatch(setMemory(state.total))}/>
-              <CalcButton value={"MR"}/>
-              <CalcButton value={"MC"}/>
+              <CalcButton value={"MR"} onClick={() => dispatch(applyMemory())}/>
+              <CalcButton value={"MC"} onClick={() => dispatch(clearMemory())}/>
             </div>
 
             <div className="row">
